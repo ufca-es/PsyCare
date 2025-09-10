@@ -32,9 +32,18 @@ class PsyCare:
 
         for intent in self.dados["respostas"]:
             for entrada in intent["entradas"]:
-                palavras = entrada.split()  
-                if all(p in texto for p in palavras):  
-                    resposta = (intent["saidas"][0])
+                palavras = entrada.split()  # divide em palavras
+                if all(p in texto for p in palavras):  # verifica se todas estão na frase
+                    resposta = random.choice(intent["saidas"])
+
+                    # Executa ações especiais (como mudar de modo)
+                    if "acao" in intent:
+                        if intent["acao"] == "mudar_modo_formal":
+                            self.__init__("formal")
+                        elif intent["acao"] == "mudar_modo_amigavel":
+                            self.__init__("amigavel")
+                        elif intent["acao"] == "mudar_modo_direto":
+                            self.__init__("direto")
 
                     return resposta
                     self.I
@@ -44,12 +53,19 @@ class PsyCare:
 
     def _tratar_texto(self, text):
         text = text.lower()
-        text = re.sub(r'[^\w\s]', '', text)  
+        text = re.sub(r'[^\w\s]', '', text)  # Remove pontuação
         acentos = "áàâãéèêíïóôõöúçñ"
         nAcentos = "aaaaeeeiiooooucn"
         return text.translate(str.maketrans(acentos, nAcentos))
 
+class Historico:
+    def __init__(self, usuario):
+        self.usuario = usuario
 
+    def salvar(self, user_input, resposta):
+        with open("historico.txt", 'a', encoding='utf-8') as g:
+            g.write(datetime.now().strftime("%A %d/%m/%Y %H:%M") + " - " + self.usuario.nome + ": " + user_input + "\n")
+            g.write(datetime.now().strftime("%A %d/%m/%Y %H:%M") + " - PsyCare: " + resposta + "\n")
 
 class Usuario:
     def __init__(self,nome):
@@ -67,6 +83,7 @@ while not modo_valido:
         print("Modo inválido! Digite apenas uma das 3 opções acima.")
 bot = PsyCare(modo)
 print(f"\nComo posso ajudar?\n.Você pode digitar sair\n.ou mudar de modo a qualquer momento\n\n-Me diga o que está sentindo {pessoa.nome}")
+historico = Historico(pessoa)
 while True:
     user_input = input(f"{pessoa.nome}: ")
     texto = bot._tratar_texto(user_input)
@@ -75,5 +92,6 @@ while True:
         break
     resposta = bot.responder(user_input)
     print(f"PsyCare: {resposta}")
+    historico.salvar(user_input, resposta)
 
 
