@@ -18,34 +18,29 @@
       "acao": "mudar_modo_direto"
     },
     {
-      "tag": "mudar_formal",
-      "entradas": ["modo formal", "quero formal", "seja formal", "fale formal","formal"],
-      "saidas": ["Você já se encontra no modo formal.","Você já está nesse modo, digite outro, por favor."]
-    },
-    {
       "tag": "saudacao",
-      "entradas": ["oi", "olá", "eai", "opa", "fala aí", "bom dia", "boa tarde", "boa noite", "tudo bom", "beleza", "tranquilo"],
-      "saidas": ["Olá, como está?", "É um prazer falar com você.", "Saudações, em que posso auxiliar?"]
+      "entradas": ["oi", "olá", "eai", "bom dia", "boa tarde", "boa noite", "tudo bom"],
+      "saidas": ["Olá! Em que posso ajudar?", "Olá!", "Olá! Tudo bem?", "Olá! Como posso ajudar?"]
     },
     {
       "tag": "despedida",
-      "entradas": ["tchau", "adeus", "até mais", "falou", "até outra hora", "vou nessa"],
-      "saidas": ["Até breve.", "Desejo-lhe um ótimo dia.", "Foi um prazer conversar, até logo."]
+      "entradas": ["tchau", "adeus", "até outra hora"],
+      "saidas": ["Foi bom conversar com você!", "Até!", "Tchau!"]
     },
     {
       "tag": "depressao",
-      "entradas": ["triste", "depressão", "depressivo", "depressiva", "infeliz", "pra baixo", "sem vontade", "chateado", "mal"],
-      "saidas": ["Lamento que esteja passando por isso.", "Estou à disposição para ouvir o que deseja compartilhar.", "Compreendo sua situação, pode falar comigo."]
+      "entradas": ["triste", "depressao", "depressivo", "depressiva", "infeliz"],
+      "saidas": ["Sinto muito que você esteja se sentindo assim!", "Estou aqui para ouvir você.", "Não se preocupe, podemos conversar."]
     },
     {
       "tag": "ansiedade",
-      "entradas": ["ansioso", "ansiedade", "preocupado", "tenso", "nervoso", "agoniado", "apreensivo", "aflito"],
-      "saidas": ["Sugiro que respire fundo para se acalmar.", "A ansiedade pode ser difícil, mas pode falar comigo.", "Estou aqui para ouvi-lo com atenção."]
+      "entradas": ["ansioso", "ansiedade", "preocupado", "tenso", "nervoso"],
+      "saidas": ["Respire fundo, tudo bem?", "Ansiedade é difícil, mas vamos conversar.", "Tente relaxar e contar o que sente."]
     },
     {
-      "tag": "cansado",
-      "entradas": ["cansado", "cansada", "exausto", "fadiga", "desanimado", "acabado", "sem energia", "moído"],
-      "saidas": ["Talvez seja um bom momento para descansar.", "Recomendo que cuide de si e faça uma pausa.", "O descanso é essencial para o bem-estar."]
+      "tag": "cansaco",
+      "entradas": ["cansado", "cansada", "exausto", "fadiga", "desanimado"],
+      "saidas": ["É fundamental reconhecer quando o cansaço mental se torna persistente e começa a afetar seriamente sua vida. O autocuidado é essencial, mas há momentos em que o apoio profissional é o caminho mais eficaz e seguro.\n\nConsidere buscar ajuda profissional se você apresenta os seguintes sinais de forma contínua:\n\nSintomas Persistentes: O cansaço, a irritabilidade, a falta de concentração e o desânimo não melhoram, mesmo após períodos de descanso.\n\nAlterações no Sono e Apetite: Dificuldade para dormir, excesso de sono, perda ou aumento significativo do apetite.\n\nIsolamento Social: Você tem evitado o contato com amigos e familiares e perdido o interesse em atividades que antes lhe davam prazer.\n\nSentimentos de Desesperança: Se pensamentos negativos são constantes e você se sente sem perspectivas.\n\nImpacto nas Atividades Diárias: Dificuldade em cumprir com as responsabilidades no trabalho, nos estudos ou em casa.\n\nSintomas Físicos: Dores de cabeça frequentes, dores musculares, problemas gastrointestinais sem causa aparente.", "Lidar com o cansaço mental exige pequenas e constantes mudanças na rotina. Comece com estas instruções práticas que você pode aplicar ainda hoje:\n\nPriorize o Essencial: Olhe para sua lista de tarefas e identifique UMA única coisa que é realmente importante. Foque nela. O resto pode esperar. Dizer não para novas demandas hoje é um ato de autocuidado.\n\nHidrate-se e Alimente-se Bem: A desidratação e a falta de nutrientes podem intensificar a sensação de esgotamento. Beba um copo de água agora e, na sua próxima refeição, inclua alimentos ricos em energia, como frutas, castanhas ou um prato colorido e balanceado. Evite o excesso de cafeína e açúcar.\n\nMovimente o Corpo Levemente: Uma caminhada curta de 10 a 15 minutos ao ar livre pode fazer maravilhas. O objetivo não é o exercício intenso, mas sim mudar de ambiente e permitir que sua mente divague.\n\nSimplifique as Decisões: O cansaço mental dificulta a tomada de decisões. Simplifique o que for possível: escolha uma roupa simples, opte por uma refeição fácil de preparar. Reduza a carga cognitiva do seu dia.\n\nComece com uma ou duas dessas sugestões. O importante é a intenção de cuidar de si."]
     }
   ]
 }
