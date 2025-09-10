@@ -1,0 +1,29 @@
+{
+  "respostas": [
+    {
+      "tag": "saudacao",
+      "entradas": ["oi", "olá", "eai", "bom dia", "boa tarde", "boa noite", "tudo bom"],
+      "saidas": ["Olá! Em que posso ajudar?", "Olá!", "Olá! Tudo bem?", "Olá! Como posso ajudar?"]
+    },
+    {
+      "tag": "despedida",
+      "entradas": ["tchau", "adeus", "até outra hora"],
+      "saidas": ["Foi bom conversar com você!", "Até!", "Tchau!"]
+    },
+    {
+      "tag": "depressao",
+      "entradas": ["triste", "depressao", "depressivo", "depressiva", "infeliz"],
+      "saidas": ["Sinto muito que você esteja se sentindo assim!", "Estou aqui para ouvir você.", "Não se preocupe, podemos conversar."]
+    },
+    {
+      "tag": "ansiedade",
+      "entradas": ["ansioso", "ansiedade", "preocupado", "tenso", "nervoso"],
+      "saidas": ["Respire fundo, tudo bem?", "Ansiedade é difícil, mas vamos conversar.", "Tente relaxar e contar o que sente."]
+    },
+    {
+      "tag": "cansaco",
+      "entradas": ["cansado", "cansada", "exausto", "fadiga", "desanimado"],
+      "saidas": ["Você precisa descansar um pouco.", "Tente relaxar e se cuidar.", "O descanso é importante para se sentir melhor."]
+    }
+  ]
+}
