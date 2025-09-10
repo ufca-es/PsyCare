@@ -1,6 +1,28 @@
 {
   "respostas": [
     {
+      "tag": "mudar_modo",
+      "entradas": ["mudar modo", "converse outra forma","converse outro modo", "mude modo", "fale outra forma","fale outro modo","modo conversa","mudar respostas"],
+      "saidas": ["Claro, que modo deseja?","Qual é o modo que você deseja?","Qual forma você quer conversar?"]
+    },
+    {
+      "tag": "mudar_amigavel",
+      "entradas": ["modo amigavel", "mude amigável", "quero amigavel", "seja amigavel", "fale amigavel","amigavel","fale como amigo"],
+      "saidas": ["Beleza! Agora vou ser mais amigável.","Pronto! Vou se mais amigável.","Vou ser mais amigável com você."],
+      "acao": "mudar_modo_amigavel"
+    },
+    {
+      "tag": "mudar_direto",
+      "entradas": ["modo direto","mude direto","quero direto", "seja direto", "fale direto","direto","respostas curtas"],
+      "saidas": ["Já está no modo direto","O modo de conversa atual é direto."]
+    },
+    {
+      "tag": "mudar_formal",
+      "entradas": ["modo formal", "quero formal", "seja formal", "fale formal","formal"],
+      "saidas": ["Claro, vou falar de forma mais formal.","Com prazer, irei ser mais formal de agora em diante"],
+      "acao": "mudar_modo_formal"
+    },
+    {
       "tag": "saudacao",
       "entradas": ["oi", "olá", "eai", "bom dia", "boa tarde", "boa noite", "tudo bom"],
       "saidas": ["Olá! Em que posso ajudar?", "Olá!", "Olá! Tudo bem?", "Olá! Como posso ajudar?"]

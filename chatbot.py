@@ -32,11 +32,11 @@ class PsyCare:
 
         for intent in self.dados["respostas"]:
             for entrada in intent["entradas"]:
-                palavras = entrada.split()  # divide em palavras
-                if all(p in texto for p in palavras):  # verifica se todas estão na frase
+
+                palavras = entrada.split() 
+                if all(p in texto for p in palavras): 
                     resposta = random.choice(intent["saidas"])
 
-                    # Executa ações especiais (como mudar de modo)
                     if "acao" in intent:
                         if intent["acao"] == "mudar_modo_formal":
                             self.__init__("formal")
@@ -44,7 +44,7 @@ class PsyCare:
                             self.__init__("amigavel")
                         elif intent["acao"] == "mudar_modo_direto":
                             self.__init__("direto")
-
+                      
                     return resposta
                     self.I
 
