@@ -34,7 +34,7 @@ class PsyCare:
             for entrada in intent["entradas"]:
                 palavras = entrada.split()  
                 if all(p in texto for p in palavras):  
-                    resposta = (intent["saidas"][0])
+                    resposta = random.choice(intent["saidas"])
                     
                     if "acao" in intent:
                         if intent["acao"] == "mudar_modo_formal":
