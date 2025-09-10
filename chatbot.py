@@ -35,7 +35,14 @@ class PsyCare:
                 palavras = entrada.split()  
                 if all(p in texto for p in palavras):  
                     resposta = (intent["saidas"][0])
-
+                    
+                    if "acao" in intent:
+                        if intent["acao"] == "mudar_modo_formal":
+                            self.__init__("formal")
+                        elif intent["acao"] == "mudar_modo_amigavel":
+                            self.__init__("amigavel")
+                        elif intent["acao"] == "mudar_modo_direto":
+                            self.__init__("direto")
                     return resposta
                     self.I
 
