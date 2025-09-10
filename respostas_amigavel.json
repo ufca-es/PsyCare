@@ -1,29 +1,51 @@
 {
-  "respostas": [
+  "respostas": [  
+    {
+      "tag": "mudar_modo",
+      "entradas": ["mudar modo", "converse outra forma","converse outro modo", "mude modo", "fale outra forma","fale outro modo","modo conversa","mudar respostas"],
+      "saidas": ["Claro, que modo deseja?","Qual é o modo que você deseja?","Qual forma você quer conversar?"]
+    },
+    {
+      "tag": "mudar_amigavel",
+      "entradas": ["modo amigavel", "mude amigável", "quero amigavel", "seja amigavel", "fale amigavel","amigavel","fale como amigo"],
+      "saidas": ["Opa! Você já está no modo amigável!","Você já está no modo amigável amigo!","Já estamos conversando no modo amigável."]
+    },
+    {
+      "tag": "mudar_direto",
+      "entradas": ["modo direto","mude direto","quero direto", "seja direto", "fale direto","direto","respostas curtas"],
+      "saidas": ["Entendido. Vou ser mais direto.","Vou dar respostas mais curtas agora.","Ok, vou ser direto"],
+      "acao": "mudar_modo_direto"
+    },
+    {
+      "tag": "mudar_formal",
+      "entradas": ["modo formal", "quero formal", "seja formal", "fale formal","formal"],
+      "saidas": ["Claro, vou falar de forma mais formal.","Com prazer, irei ser mais formal de agora em diante"],
+      "acao": "mudar_modo_formal"
+    },
     {
       "tag": "saudacao",
-      "entradas": ["oi", "olá", "eai", "bom dia", "boa tarde", "boa noite", "tudo bom"],
-      "saidas": ["Olá! Em que posso ajudar?", "Olá!", "Olá! Tudo bem?", "Olá! Como posso ajudar?"]
+      "entradas": ["oi", "olá", "eai", "opa", "fala aí", "bom dia", "boa tarde", "boa noite", "tudo bom", "beleza", "tranquilo"],
+      "saidas": ["E aí! Como você tá?", "Oi! Tudo certinho com você?", "Olá! Que bom te ver por aqui!", "Falaaa! Como anda a vida?"]
     },
     {
       "tag": "despedida",
-      "entradas": ["tchau", "adeus", "até outra hora"],
-      "saidas": ["Foi bom conversar com você!", "Até!", "Tchau!"]
+      "entradas": ["tchau", "adeus", "até mais", "falou", "até outra hora", "vou nessa"],
+      "saidas": ["Valeu a conversa, até a próxima!", "Se cuida, até logo!", "Foi massa falar com você, até mais!"]
     },
     {
       "tag": "depressao",
-      "entradas": ["triste", "depressão", "depressivo", "depressiva", "infeliz"],
-      "saidas": ["Sinto muito que você esteja se sentindo assim!", "Estou aqui para ouvir você.", "Não se preocupe, podemos conversar."]
+      "entradas": ["triste", "depressão", "depressivo", "depressiva", "infeliz", "pra baixo", "sem vontade", "chateado", "mal"],
+      "saidas": ["Poxa, sinto muito que você esteja assim. Quer conversar?", "Eu tô aqui pra te ouvir, fala comigo.", "Você não tá sozinho nisso, pode contar comigo."]
     },
     {
       "tag": "ansiedade",
-      "entradas": ["ansioso", "ansiedade", "preocupado", "tenso", "nervoso"],
-      "saidas": ["Respire fundo, tudo bem?", "Ansiedade é difícil, mas vamos conversar.", "Tente relaxar e contar o que sente."]
+      "entradas": ["ansioso", "ansiedade", "preocupado", "tenso", "nervoso", "agoniado", "apreensivo", "aflito"],
+      "saidas": ["Respira fundo, vai dar tudo certo.", "Relaxa, tô aqui pra ouvir o que você sente.", "É normal se sentir assim às vezes, quer conversar?"]
     },
     {
       "tag": "cansaco",
-      "entradas": ["cansado", "cansada", "exausto", "fadiga", "desanimado"],
-      "saidas": ["Você precisa descansar um pouco.", "Tente relaxar e se cuidar.", "O descanso é importante para se sentir melhor."]
+      "entradas": ["cansado", "cansada", "exausto", "fadiga", "desanimado", "acabado", "sem energia", "moído"],
+      "saidas": ["Você merece descansar um pouco.", "Se cuida, tenta relaxar um pouco.", "Às vezes só um cochilo já muda o dia, viu?"]
     }
   ]
 }
