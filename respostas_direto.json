@@ -21,11 +21,19 @@
       "Ok, vou ser direto"],
       "acao": "mudar_modo_direto"
     },
-    {
+   {
       "tag": "mudar_formal",
-      "entradas": ["modo formal", "quero formal", "seja formal", "fale formal","formal"],
-      "saidas": ["Você já se encontra no modo formal.",
-      "Você já está nesse modo, digite outro, por favor."]
+      "entradas": [
+        "modo formal",
+        "quero formal",
+        "seja formal",
+        "fale formal",
+        "formal"
+      ],
+      "saidas": [
+        "Claro, vou falar de forma mais formal."
+      ],
+      "acao": "mudar_modo_formal"
     },
     {
       "tag": "saudacao",
