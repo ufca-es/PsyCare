@@ -2,45 +2,126 @@
   "respostas": [
     {
       "tag": "mudar_modo",
-      "entradas": ["mudar modo", "converse de outra forma", "mude modo", "fale outra forma","modo"],
-      "saidas": ["Claro, que modo deseja?."]
+      "entradas": [
+        "mudar modo",
+        "converse de outra forma",
+        "mude modo",
+        "fale outra forma",
+        "modo conversa",
+        "mudar respostas"
+      ],
+      "saidas": [
+        "Claro, que modo deseja?."
+      ]
     },
     {
       "tag": "mudar_formal",
-      "entradas": ["modo formal", "quero formal", "seja formal", "fale formal","formal"],
-      "saidas": ["Claro, vou falar de forma mais formal."],
+      "entradas": [
+        "modo formal",
+        "quero formal",
+        "seja formal",
+        "fale formal",
+        "formal"
+      ],
+      "saidas": [
+        "Claro, vou falar de forma mais formal."
+      ],
       "acao": "mudar_modo_formal"
     },
     {
       "tag": "mudar_direto",
-      "entradas": ["modo direto", "quero direto", "seja direto", "fale direto"],
-      "saidas": ["Entendido. Vou ser mais direto a partir de agora."],
+      "entradas": [
+        "modo direto",
+        "quero direto",
+        "seja direto",
+        "fale direto",
+        "direto"
+      ],
+      "saidas": [
+        "Entendido. Vou ser mais direto a partir de agora."
+      ],
       "acao": "mudar_modo_direto"
     },
     {
       "tag": "saudacao",
-      "entradas": ["oi", "olá", "eai", "bom dia", "boa tarde", "boa noite", "tudo bom"],
-      "saidas": ["Olá! Como você está se sentindo hoje? Espero que eu possa lhe ajudar!😸", "Saudações! Em que posso lhe ajudar hoje?😊", "Olá! Tudo bem com você? ^.^", "Olá! Como posso ajudar você neste momento?😸"]
+      "entradas": [
+        "oi",
+        "olá",
+        "eai",
+        "bom dia",
+        "boa tarde",
+        "boa noite",
+        "tudo bom"
+      ],
+      "saidas": [
+        "Olá! Como você está se sentindo hoje? Espero que eu possa lhe ajudar!😸",
+        "Saudações! Em que posso lhe ajudar hoje?😊",
+        "Olá! Tudo bem com você? ^.^",
+        "Olá! Como posso ajudar você neste momento?😸"
+      ]
     },
     {
       "tag": "despedida",
-      "entradas": ["tchau", "adeus", "até outra hora"],
-      "saidas": ["Foi bom conversar com você! Espero que a nossa conversa tenha lhe ajudado. Estarei aqui para o que precisar, ate mais!🥰", "Espero que você possa ficar bem! Estarei a disposição para o que precisar! ", "Tudo bem, Tchauzinho! ☆*: .｡. o(≧▽≦)o .｡.:*☆"]
+      "entradas": [
+        "tchau",
+        "adeus",
+        "até outra hora",
+        "ate mais",
+        "ate"
+      ],
+      "saidas": [
+        "Foi bom conversar com você! Espero que a nossa conversa tenha lhe ajudado. Estarei aqui para o que precisar, ate mais!🥰",
+        "Espero que você possa ficar bem! Estarei a disposição para o que precisar! ",
+        "Tudo bem, Tchauzinho! ☆*: .｡. o(≧▽≦)o .｡.:*☆"
+      ]
     },
     {
       "tag": "depressao",
-      "entradas": ["triste", "depressão", "depressivo", "depressiva", "infeliz"],
-      "saidas": ["Sinto muito que você esteja se sentindo assim! ~_~\n\nA depressão é um transtorno mental que afeta milhões de pessoas ao redor do mundo e atinge as diferentes funções do corpo e mente.\nSe você sente deprimido, sem motivações para realizar funções básicas e se distanciando dos seus amigos e familiares, saiba que você não está sozinho!^.^\n\nProcure ajuda de um profissional de saúde, como um médico ou psiquiatra, para obter um tratamento e diagnóstico adequado, para que sua saúde mental possa ser preservada!\nAlém disso, disque 188, para falar com os profissionais do Centro de Valorização da Vida (CVV), que estão disponíveis 24 horas!\n\nSaiba que você não está sozinho, vai ficar tudo bem!😊", "Eu sei que parece difícil agora, mas quero te lembrar da sua força. A depressão pode nublar nossa visão e roubar nossa energia, fazendo com que a gente se isole e perca a motivação. Mas essa sensação não define quem você é! ^.^\n\nDê o primeiro passo para reencontrar sua luz: procure um profissional de saúde. Um médico ou terapeuta pode te guiar no caminho da recuperação. E se precisar de alguém para conversar a qualquer momento, o CVV está disponível no número 188.\n\nLembre-se: você não está sozinho(a) e a recuperação é possível. Vai ficar tudo bem, acredite!", "Sinto muito que você esteja passando por isso. ~_~\n\nA depressão é uma condição séria que impacta a mente e o corpo, e é normal se sentir sem energia e distante das pessoas que ama. Quero que saiba que você não está sozinho(a) nessa jornada e que seus sentimentos são válidos.\n\nCuidar da sua saúde mental é fundamental. Conversar com um médico ou psicólogo pode te dar o diagnóstico e o tratamento que você precisa para se sentir melhor. Lembre-se também que o CVV (disque 188) oferece apoio emocional gratuito 24 horas por dia.\n\nPor favor, não desista. As coisas podem e vão melhorar. Você é importante e merece se sentir bem! 😊"]
+      "entradas": [
+        "triste",
+        "depressao",
+        "depressivo",
+        "depressiva",
+        "infeliz",
+        "desanimo",
+        "desanimado",
+        "desanimada"
+      ],
+      "saidas": [
+        "Sinto muito que você esteja se sentindo assim! ~_~\n\nA depressão é um transtorno mental que afeta milhões de pessoas ao redor do mundo e atinge as diferentes funções do corpo e mente.\nSe você sente deprimido, sem motivações para realizar funções básicas e se distanciando dos seus amigos e familiares, saiba que você não está sozinho!^.^\n\nProcure ajuda de um profissional de saúde, como um médico ou psiquiatra, para obter um tratamento e diagnóstico adequado, para que sua saúde mental possa ser preservada!\nAlém disso, disque 188, para falar com os profissionais do Centro de Valorização da Vida (CVV), que estão disponíveis 24 horas!\n\nSaiba que você não está sozinho, vai ficar tudo bem!😊",
+        "Eu sei que parece difícil agora, mas quero te lembrar da sua força. A depressão pode nublar nossa visão e roubar nossa energia, fazendo com que a gente se isole e perca a motivação. Mas essa sensação não define quem você é! ^.^\n\nDê o primeiro passo para reencontrar sua luz: procure um profissional de saúde. Um médico ou terapeuta pode te guiar no caminho da recuperação. E se precisar de alguém para conversar a qualquer momento, o CVV está disponível no número 188.\n\nLembre-se: você não está sozinho(a) e a recuperação é possível. Vai ficar tudo bem, acredite!",
+        "Sinto muito que você esteja passando por isso. ~_~\n\nA depressão é uma condição séria que impacta a mente e o corpo, e é normal se sentir sem energia e distante das pessoas que ama. Quero que saiba que você não está sozinho(a) nessa jornada e que seus sentimentos são válidos.\n\nCuidar da sua saúde mental é fundamental. Conversar com um médico ou psicólogo pode te dar o diagnóstico e o tratamento que você precisa para se sentir melhor. Lembre-se também que o CVV (disque 188) oferece apoio emocional gratuito 24 horas por dia.\n\nPor favor, não desista. As coisas podem e vão melhorar. Você é importante e merece se sentir bem! 😊"
+      ]
     },
     {
       "tag": "ansiedade",
-      "entradas": ["ansioso", "ansiedade", "preocupado", "tenso", "nervoso"],
-      "saidas": ["Ei, tudo bem? Sei que às vezes a ansiedade parece uma tempestade interna, e é totalmente normal se sentir assim. Quero que você saiba que seus sentimentos são válidos.\n\nQuando sentir que a onda de ansiedade está chegando, tente isso:\n\nRespire fundo comigo: Inspire lentamente contando até 4, segure por 4 segundos e solte o ar contando até 6. Faça isso algumas vezes. Sinta seus pés firmes no chão.\n\nSeja gentil com você: Você não precisa ser perfeito(a). Permita-se sentir, sem julgamentos. Você está fazendo o seu melhor, e isso é o suficiente.\n\nUm passinho de cada vez: Foque apenas no que está à sua frente agora. O futuro pode esperar.\n\nLembre-se, você é forte! Cada dia é uma nova chance, e você não está sozinho(a) nessa. Fique bem! 😊", "Quando a ansiedade bater, pode ser útil ter um 'kit de primeiros socorros' mental. Aqui estão algumas ferramentas que você pode usar a qualquer momento:\n\nTécnica 5-4-3-2-1: Olhe ao redor e nomeie 5 coisas que você pode ver, 4 que pode tocar, 3 que pode ouvir, 2 que pode cheirar e 1 que pode sentir o gosto. Isso te ancora no presente.\n\nMova seu corpo: Faça uma caminhada curta, um alongamento ou coloque uma música e dance. Mudar o estado físico ajuda a mudar o estado mental.\n\nDesabafe: Escreva o que está sentindo em um papel ou mande um áudio para um amigo de confiança. Tirar o pensamento da cabeça alivia o peso.\n\nVocê tem as ferramentas para navegar por isso. Lembre-se de que buscar a ajuda de um terapeuta é como ter um instrutor pessoal para a sua mente. Você consegue! ^.^"]
+      "entradas": [
+        "ansioso",
+        "ansiedade",
+        "preocupado",
+        "tenso",
+        "nervoso"
+      ],
+      "saidas": [
+        "Ei, tudo bem? Sei que às vezes a ansiedade parece uma tempestade interna, e é totalmente normal se sentir assim. Quero que você saiba que seus sentimentos são válidos.\n\nQuando sentir que a onda de ansiedade está chegando, tente isso:\n\nRespire fundo comigo: Inspire lentamente contando até 4, segure por 4 segundos e solte o ar contando até 6. Faça isso algumas vezes. Sinta seus pés firmes no chão.\n\nSeja gentil com você: Você não precisa ser perfeito(a). Permita-se sentir, sem julgamentos. Você está fazendo o seu melhor, e isso é o suficiente.\n\nUm passinho de cada vez: Foque apenas no que está à sua frente agora. O futuro pode esperar.\n\nLembre-se, você é forte! Cada dia é uma nova chance, e você não está sozinho(a) nessa. Fique bem! 😊",
+        "Quando a ansiedade bater, pode ser útil ter um 'kit de primeiros socorros' mental. Aqui estão algumas ferramentas que você pode usar a qualquer momento:\n\nTécnica 5-4-3-2-1: Olhe ao redor e nomeie 5 coisas que você pode ver, 4 que pode tocar, 3 que pode ouvir, 2 que pode cheirar e 1 que pode sentir o gosto. Isso te ancora no presente.\n\nMova seu corpo: Faça uma caminhada curta, um alongamento ou coloque uma música e dance. Mudar o estado físico ajuda a mudar o estado mental.\n\nDesabafe: Escreva o que está sentindo em um papel ou mande um áudio para um amigo de confiança. Tirar o pensamento da cabeça alivia o peso.\n\nVocê tem as ferramentas para navegar por isso. Lembre-se de que buscar a ajuda de um terapeuta é como ter um instrutor pessoal para a sua mente. Você consegue! ^.^"
+      ]
     },
     {
       "tag": "cansaco",
-      "entradas": ["cansado", "cansada", "exausto", "fadiga", "desanimado"],
-      "saidas": ["Sei que a mente às vezes parece um computador com muitas abas abertas, e chega uma hora que ele simplesmente trava. Se você está se sentindo assim, saiba que é um sinal do seu corpo pedindo uma pausa. E está tudo bem em dar essa pausa.\n\nQue tal tentar algo pequeno hoje?\n\nDesligue por 5 minutos: Apenas 5. Sente-se em silêncio, olhe pela janela, ouça uma música calma. Sem telas, sem cobranças.\n\nHidrate sua mente: Beba um copo d'água lentamente. Às vezes, o básico é o que mais nos ajuda a reiniciar.\n\nVocê não precisa dar conta de tudo o tempo todo. Seu descanso é tão produtivo quanto seu trabalho. Permita-se recarregar. Você merece esse cuidado. 😊", "Sabe quando a bateria social chega a 1%? É super normal. Lidar com pessoas, trabalho e expectativas cansa muito, e às vezes a gente só precisa ficar no nosso cantinho.\n\nCrie sua bolha de paz: Coloque fones de ouvido (mesmo sem música), leia um livro, assista à sua série favorita. Crie um espaço só seu, sem interrupções.\n\nConecte-se com a natureza: Se puder, fique descalço(a) na grama por alguns minutos ou apenas observe as nuvens. A natureza tem um jeito incrível de nos reenergizar.\n\nSimplifique o dia: Peça um delivery em vez de cozinhar. Use uma roupa confortável. Facilite as pequenas decisões para sobrar mais energia para você.\n\nRecarregar as energias não é se isolar do mundo, mas sim se reconectar com você. Respeite seu ritmo. O mundo pode esperar um pouquinho!"]
+      "entradas": [
+        "cansado",
+        "cansada",
+        "exausto",
+        "fadiga",
+        "cansaco",
+        "stress",
+        "estresse"
+      ],
+      "saidas": [
+        "Sei que a mente às vezes parece um computador com muitas abas abertas, e chega uma hora que ele simplesmente trava. Se você está se sentindo assim, saiba que é um sinal do seu corpo pedindo uma pausa. E está tudo bem em dar essa pausa.\n\nQue tal tentar algo pequeno hoje?\n\nDesligue por 5 minutos: Apenas 5. Sente-se em silêncio, olhe pela janela, ouça uma música calma. Sem telas, sem cobranças.\n\nHidrate sua mente: Beba um copo d'água lentamente. Às vezes, o básico é o que mais nos ajuda a reiniciar.\n\nVocê não precisa dar conta de tudo o tempo todo. Seu descanso é tão produtivo quanto seu trabalho. Permita-se recarregar. Você merece esse cuidado. 😊",
+        "Sabe quando a bateria social chega a 1%? É super normal. Lidar com pessoas, trabalho e expectativas cansa muito, e às vezes a gente só precisa ficar no nosso cantinho.\n\nCrie sua bolha de paz: Coloque fones de ouvido (mesmo sem música), leia um livro, assista à sua série favorita. Crie um espaço só seu, sem interrupções.\n\nConecte-se com a natureza: Se puder, fique descalço(a) na grama por alguns minutos ou apenas observe as nuvens. A natureza tem um jeito incrível de nos reenergizar.\n\nSimplifique o dia: Peça um delivery em vez de cozinhar. Use uma roupa confortável. Facilite as pequenas decisões para sobrar mais energia para você.\n\nRecarregar as energias não é se isolar do mundo, mas sim se reconectar com você. Respeite seu ritmo. O mundo pode esperar um pouquinho!"
+      ]
     }
   ]
 }
