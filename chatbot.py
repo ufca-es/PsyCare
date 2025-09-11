@@ -7,13 +7,10 @@ class PsyCare:
     def __init__(self,modo): 
         self.modo = modo
         if modo == 'formal':
-            print("Vou ser mais formal a partir de agora")
             arquivo_json = "respostas_formal.json"
         elif modo == 'amigável' or modo == 'amigavel':
-            print("Vou ser mais amigável a partir de agora")
             arquivo_json = "respostas_amigavel.json"
         elif modo == 'direto':
-            print("Vou ser mais direto a partir de agora")
             arquivo_json = "respostas_direto.json"
         else:
             arquivo_json = None
