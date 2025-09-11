@@ -31,7 +31,7 @@ class PsyCare:
         except FileNotFoundError:
             pass
     
-    def responder(self, user_input): #Buscar respostas
+    def responder(self, user_input):
         if not self.dados:
             return "Não há respostas disponíveis."
 
@@ -39,8 +39,8 @@ class PsyCare:
 
         for intent in self.dados["respostas"]:
             for entrada in intent["entradas"]:
-                palavras = entrada.split()  # divide em palavras
-                if all(p in texto for p in palavras):  # verifica se todas estão na frase
+                palavras = entrada.split()  
+                if all(p in texto for p in palavras): 
                     resposta = random.choice(intent["saidas"])
 
                     if "acao" in intent:
@@ -53,11 +53,11 @@ class PsyCare:
 
                     return resposta
 
-        return None  # Não entendeu nada
+        return None  
 
     def _tratar_texto(self, text):
         text = text.lower()
-        text = re.sub(r'[^\w\s]', '', text)  # Remove pontuação
+        text = re.sub(r'[^\w\s]', '', text) 
         acentos = "áàâãéèêíïóôõöúçñ"
         nAcentos = "aaaaeeeiiooooucn"
         return text.translate(str.maketrans(acentos, nAcentos))
@@ -68,7 +68,6 @@ class Historico:
 
     def salvar(self, user_input, resposta):
         with open("historico.txt", 'a', encoding='utf-8') as g:
-            g.write(f"Usuário: {self.usuario.nome}\n")
             g.write(datetime.now().strftime("%A %d/%m/%Y %H:%M") + " - " + self.usuario.nome + ": " + user_input + "\n")
             g.write(datetime.now().strftime("%A %d/%m/%Y %H:%M") + " - PsyCare: " + resposta + "\n")
     def ler(self):
@@ -80,8 +79,9 @@ class Historico:
         if not self.historico:
             return "Não há histórico anterior."
         else:
+            ultimas = self.historico[-5:]
             print("Histórico anterior:")
-            return "".join(self.historico)
+            return "".join(ultimas)
 
 class Aprender:
     def __init__(self):
@@ -92,14 +92,24 @@ class Aprender:
             "aprendizado.json"
         ]
 
+    def _tratar_texto(self, text):
+        text = text.lower()
+        text = re.sub(r'[^\w\s]', '', text) 
+        acentos = "áàâãéèêíïóôõöúçñ"
+        nAcentos = "aaaaeeeiiooooucn"
+        return text.translate(str.maketrans(acentos, nAcentos))
+
     def salvar(self, entrada, saida, bot):
+
+        entrada_tratada = self._tratar_texto(entrada)
+        
         nova_intencao = {
             "tag": f"aprendido_{self._get_next_id()}",
-            "entradas": [entrada],
+            "entradas": [entrada_tratada],  
             "saidas": [saida]
         }
 
-        # Atualiza todos os arquivos JSON
+
         for arquivo in self.arquivos_json:
             try:
                 with open(arquivo, "r", encoding="utf-8") as f:
@@ -113,11 +123,11 @@ class Aprender:
                 print(f"Arquivo {arquivo} não encontrado.")
                 continue
 
-        # Atualiza na memória do bot
+
         bot.dados["respostas"].append(nova_intencao)
 
     def _get_next_id(self):
-        # Pega o maior ID atual nos arquivos
+
         max_id = 0
         for arquivo in self.arquivos_json:
             try:
@@ -138,7 +148,7 @@ class Usuario:
     def __init__(self,nome):
         self.nome = nome
 
-# --------------------------- PROGRAMA PRINCIPAL --------------------------- #
+
 nome = input("Olá, qual é seu nome? ")
 pessoa = Usuario(nome)
 historico = Historico(pessoa)
