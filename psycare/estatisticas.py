@@ -55,11 +55,18 @@ class Estatisticas:
         return self.perguntas.most_common(1)[0]
         
     def exibir_estatisticas(self):
-        print("\n=== Estatísticas ===")
+        print("\n=== Estatísticas da Sessão Atual ===")
         print(f"Total de interações: {self.total_interacoes}")
-        if self.perguntas:
-            pergunta, freq = self.obter_pergunta_mais_frequente()
-            print(f"Pergunta mais frequente: '{pergunta}' ({freq} vezes)")
+        
+        # Usar apenas as perguntas da sessão atual
+        perguntas_sessao = Counter()
+        for pergunta, contagem in self.perguntas.items():
+            perguntas_sessao[pergunta] = contagem
+            
+        if perguntas_sessao:
+            pergunta_frequente = perguntas_sessao.most_common(1)[0]
+            print(f"Pergunta mais frequente desta sessão: '{pergunta_frequente[0]}' ({pergunta_frequente[1]} vezes)")
+        
         print("\nUso de personalidades:")
         for modo, quantidade in self.uso_personalidades.items():
             print(f"- {modo.capitalize()}: {quantidade}")
