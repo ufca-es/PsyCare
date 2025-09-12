@@ -70,9 +70,12 @@ class Estatisticas:
 
 
 class PsyCare:
+    # Criar estatísticas como variável de classe compartilhada
+    estatisticas = Estatisticas()
+    
     def __init__(self,modo): 
         self.modo = modo
-        self.estatisticas = Estatisticas()
+        # Remover self.estatisticas = Estatisticas()
         if modo == 'formal':
             arquivo_json = "respostas_formal.json"
         elif modo == 'amigável' or modo == 'amigavel':
@@ -96,8 +99,9 @@ class PsyCare:
             pass
     
     def responder(self, user_input):
-        self.estatisticas.adicionar_pergunta(user_input)
-        self.estatisticas.adicionar_uso_personalidade(self.modo)
+        # Usar PsyCare.estatisticas ao invés de self.estatisticas
+        PsyCare.estatisticas.adicionar_pergunta(user_input)
+        PsyCare.estatisticas.adicionar_uso_personalidade(self.modo)
 
         if not self.dados:
             return "Não há respostas disponíveis."
@@ -239,9 +243,11 @@ while True:
     user_input = input(f"{pessoa.nome}: ")
     texto = bot._tratar_texto(user_input)
     if user_input.lower() == 'sair':
+
         bot.estatisticas.exibir_estatisticas()
         bot.estatisticas.salvar_estatisticas()
         bot.estatisticas.salvar_relatorio()
+
         print("PsyCare: Até logo!")
         break
 
