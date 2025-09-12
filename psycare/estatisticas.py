@@ -4,7 +4,8 @@ from collections import Counter
 class Estatisticas:
     def __init__(self):
         self.total_interacoes = 0
-        self.perguntas = Counter()
+        self.perguntas = Counter()  # contador total
+        self.perguntas_sessao = Counter()  # novo contador para sessão atual
         self.uso_personalidades = {
             'formal': 0,
             'amigavel': 0,
@@ -14,6 +15,7 @@ class Estatisticas:
 
     def adicionar_pergunta(self, pergunta):
         self.perguntas[pergunta] += 1
+        self.perguntas_sessao[pergunta] += 1  # incrementa contador da sessão
         self.total_interacoes += 1
 
     def adicionar_uso_personalidade(self, personalidade):
@@ -68,13 +70,8 @@ class Estatisticas:
         print("\n=== Estatísticas da Sessão Atual ===")
         print(f"Total de interações: {self.total_interacoes}")
         
-        # Usar apenas as perguntas da sessão atual
-        perguntas_sessao = Counter()
-        for pergunta, contagem in self.perguntas.items():
-            perguntas_sessao[pergunta] = contagem
-            
-        if perguntas_sessao:
-            pergunta_frequente = perguntas_sessao.most_common(1)[0]
+        if self.perguntas_sessao:  # usar perguntas_sessao ao invés de perguntas
+            pergunta_frequente = self.perguntas_sessao.most_common(1)[0]
             print(f"Pergunta mais frequente desta sessão: '{pergunta_frequente[0]}' ({pergunta_frequente[1]} vezes)")
         
         print("\nUso de personalidades:")
