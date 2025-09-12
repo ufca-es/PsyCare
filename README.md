@@ -12,19 +12,30 @@ Um chatbot simples desenvolvido em Python, o qual visa informar, acolher e ajuda
 
 2. Execute o chatbot:
 ```bash
-python chatbot.py
+python main.py
 ```
 
 ## 📦 Estrutura do projeto
 
 ```
 PsyCare/
-├── chatbot.py          # Arquivo principal do chatbot
-├── respostas_formal.json    # DArquivo json da personalidade formal
-├── respostas_direto.json    # Arquivo json da personalidade direto
-├── respostas_amigavel.json    # Arquivo json da personalidade amigável
-├── aprendizado.json    # Arquivo json de Aprendizado
-└── README.md          # Este arquivo
+├── main.py                      # Arquivo principal do chatbot
+|
+├── config
+|   ├── respostas_formal.json    # Arquivo json da personalidade formal
+|   ├── respostas_direto.json    # Arquivo json da personalidade direto
+|   ├── respostas_amigavel.json  # Arquivo json da personalidade amigável
+|   └── aprendizado.json         # Arquivo json de aprendizado
+|
+├── psycare
+|   ├── __init__.py
+|   ├── constants.py
+|   ├── aprender.py
+|   ├── estatisticas.py
+|   ├── usuario.py
+|   └── historico.py
+|
+└── README.md                    # Este arquivo
 ```
 
 ## 🛠️ Personalidades
@@ -37,8 +48,8 @@ PsyCare/
 
 - Icaro;
 - Heberthy;
-- Welton;
-- Joaquin Arthur.
+- José Welton;
+- Joaquim Arthur.
 
 ### Professor:
 
