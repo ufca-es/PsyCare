@@ -1,22 +1,3 @@
 {
-  "respostas": [
-    {
-      "tag": "aprendido_1",
-      "entradas": [
-        "estou depresso"
-      ],
-      "saidas": [
-        "a"
-      ]
-    },
-    {
-      "tag": "aprendido_2",
-      "entradas": [
-        "obrigado"
-      ],
-      "saidas": [
-        "de nada, é muito bom poder te ajudar"
-      ]
-    }
-  ]
+  "respostas": []
 }

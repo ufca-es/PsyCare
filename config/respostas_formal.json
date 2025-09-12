@@ -2,151 +2,59 @@
   "respostas": [
     {
       "tag": "mudar_modo",
-      "entradas": [
-        "mudar modo",
-        "converse outra forma",
-        "converse outro modo",
-        "mude modo",
-        "fale outra forma",
-        "fale outro modo",
-        "modo conversa",
-        "mudar respostas"
-      ],
-      "saidas": [
-        "Claro, que modo deseja?",
-        "Qual é o modo que você deseja?",
-        "Qual forma você quer conversar?"
-      ]
+      "entradas": ["mudar modo", "converse outra forma","converse outro modo", "mude modo", "fale outra forma","fale outro modo","modo conversa","mudar respostas"],
+      "saidas": ["Claro, que modo deseja?",
+      "Qual é o modo que você deseja?",
+      "Qual forma você quer conversar?"]
     },
     {
       "tag": "mudar_amigavel",
-      "entradas": [
-        "modo amigavel",
-        "mude amigavel",
-        "quero amigavel",
-        "seja amigavel",
-        "fale amigavel",
-        "amigavel",
-        "fale como amigo"
-      ],
-      "saidas": [
-        "Beleza! Agora vou ser mais amigável.",
-        "Pronto! Vou se mais amigável.",
-        "Vou ser mais amigável com você."
-      ],
+      "entradas": ["modo amigavel", "mude amigavel", "quero amigavel", "seja amigavel", "fale amigavel","amigavel","fale como amigo"],
+      "saidas": ["Beleza! Agora vou ser mais amigável.",
+      "Pronto! Vou se mais amigável.",
+      "Vou ser mais amigável com você."],
       "acao": "mudar_modo_amigavel"
     },
     {
       "tag": "mudar_direto",
-      "entradas": [
-        "modo direto",
-        "mude direto",
-        "quero direto",
-        "seja direto",
-        "fale direto",
-        "direto",
-        "respostas curtas"
-      ],
-      "saidas": [
-        "Entendido. Vou ser mais direto.",
-        "Vou dar respostas mais curtas agora.",
-        "Ok, vou ser direto"
-      ],
+      "entradas": ["modo direto","mude direto","quero direto", "seja direto", "fale direto","direto","respostas curtas"],
+      "saidas": ["Entendido. Vou ser mais direto.",
+      "Vou dar respostas mais curtas agora.",
+      "Ok, vou ser direto"],
       "acao": "mudar_modo_direto"
     },
     {
       "tag": "saudacao",
-      "entradas": [
-        "oi",
-        "olá",
-        "eai",
-        "bom dia",
-        "boa tarde",
-        "boa noite",
-        "tudo bom"
-      ],
-      "saidas": [
-        "Olá! Em que posso ajudar?",
-        "Olá!",
-        "Olá! Tudo bem?",
-        "Olá! Como posso ajudar?"
-      ]
+      "entradas": ["oi", "olá", "eai", "bom dia", "boa tarde", "boa noite", "tudo bom"],
+      "saidas": ["Olá! Em que posso ajudar?", 
+      "Olá!", 
+      "Olá! Tudo bem?", 
+      "Olá! Como posso ajudar?"]
     },
     {
       "tag": "despedida",
-      "entradas": [
-        "tchau",
-        "adeus",
-        "ate outra hora"
-      ],
-      "saidas": [
-        "Foi bom conversar com você!",
-        "Até!",
-        "Tchau!"
-      ]
+      "entradas": ["tchau", "adeus", "ate outra hora"],
+      "saidas": ["Foi bom conversar com você!", 
+      "Até!", 
+      "Tchau!"]
     },
     {
       "tag": "depressao",
-      "entradas": [
-        "triste",
-        "depressao",
-        "depressivo",
-        "depressiva",
-        "infeliz"
-      ],
-      "saidas": [
-        "A saúde mental é um componente essencial para o bem-estar geral. \n\nAo identificar sintomas como humor deprimido persistente, perda de interesse ou prazer em atividades cotidianas, alterações significativas no apetite ou no sono, fadiga constante e dificuldade de concentração, é imperativo buscar avaliação profissional. Recomenda-se agendar uma consulta com um médico ou psicólogo para um diagnóstico preciso e a elaboração de um plano de tratamento individualizado. \n\nA automedicação é formalmente desaconselhada. O primeiro passo para a recuperação é o reconhecimento da necessidade de auxílio qualificado.",
-        "A depressão é uma condição de saúde séria que exige atenção e cuidado especializado. O primeiro e mais crucial passo na jornada de recuperação é o reconhecimento da necessidade de auxílio profissional. Recomenda-se vivamente a busca por um médico psiquiatra e por um psicólogo, profissionais habilitados para realizar o diagnóstico diferencial, instituir o tratamento mais adequado e oferecer o suporte psicoterapêutico necessário."
-      ]
+      "entradas": ["triste", "depressao", "depressivo", "depressiva", "infeliz"],
+      "saidas": ["A saúde mental é um componente essencial para o bem-estar geral. \n\nAo identificar sintomas como humor deprimido persistente, perda de interesse ou prazer em atividades cotidianas, alterações significativas no apetite ou no sono, fadiga constante e dificuldade de concentração, é imperativo buscar avaliação profissional. Recomenda-se agendar uma consulta com um médico ou psicólogo para um diagnóstico preciso e a elaboração de um plano de tratamento individualizado. \n\nA automedicação é formalmente desaconselhada. O primeiro passo para a recuperação é o reconhecimento da necessidade de auxílio qualificado.", 
+      "A depressão é uma condição de saúde séria que exige atenção e cuidado especializado. O primeiro e mais crucial passo na jornada de recuperação é o reconhecimento da necessidade de auxílio profissional. Recomenda-se vivamente a busca por um médico psiquiatra e por um psicólogo, profissionais habilitados para realizar o diagnóstico diferencial, instituir o tratamento mais adequado e oferecer o suporte psicoterapêutico necessário."]
     },
     {
       "tag": "ansiedade",
-      "entradas": [
-        "ansioso",
-        "ansiedade",
-        "preocupado",
-        "tenso",
-        "nervoso",
-        "desanimo",
-        "desanimado",
-        "desanimada"
-      ],
-      "saidas": [
-        "Em momentos de crise, a ativação de respostas fisiológicas de relaxamento é fundamental. \n\nRecomenda-se a prática da respiração diafragmática, que consiste em inspirar lentamente pelo nariz, direcionando o ar para o abdômen, e expirar de forma suave e prolongada pela boca. Este exercício auxilia na regulação do sistema nervoso autônomo, promovendo uma sensação de calma. \n\nAdicionalmente, a técnica de ancoragem, que envolve focar a atenção em estímulos sensoriais presentes no ambiente – como a textura de um objeto, um som específico ou uma cor predominante – pode ser eficaz para desviar o foco dos pensamentos ansiogênicos e reconectar-se com o momento presente. \n\nA combinação destas estratégias pode proporcionar alívio imediato e restaurar o equilíbrio em situações de desconforto agudo.",
-        "A ansiedade é frequentemente mantida por padrões de pensamentos disfuncionais. É imperativo desenvolver a habilidade de identificar e questionar pensamentos catastróficos ou excessivamente negativos. \n\nSugere-se a prática do registro de pensamentos, anotando as situações que desencadeiam a ansiedade, os pensamentos automáticos associados e as emoções resultantes. Após o registro, proceda com uma análise crítica da veracidade e utilidade desses pensamentos, buscando evidências que os confirmem ou refutem. A substituição consciente de pensamentos distorcidos por interpretações mais realistas e ponderadas da realidade é um passo crucial para a redução da intensidade e da frequência dos estados ansiosos. \n\nEsta reestruturação cognitiva, embora gradual, é uma ferramenta poderosa para o manejo da ansiedade a longo prazo."
-      ]
+      "entradas": ["ansioso", "ansiedade", "preocupado", "tenso", "nervoso", "desanimo", "desanimado", "desanimada"],
+      "saidas": ["Em momentos de crise, a ativação de respostas fisiológicas de relaxamento é fundamental. \n\nRecomenda-se a prática da respiração diafragmática, que consiste em inspirar lentamente pelo nariz, direcionando o ar para o abdômen, e expirar de forma suave e prolongada pela boca. Este exercício auxilia na regulação do sistema nervoso autônomo, promovendo uma sensação de calma. \n\nAdicionalmente, a técnica de ancoragem, que envolve focar a atenção em estímulos sensoriais presentes no ambiente – como a textura de um objeto, um som específico ou uma cor predominante – pode ser eficaz para desviar o foco dos pensamentos ansiogênicos e reconectar-se com o momento presente. \n\nA combinação destas estratégias pode proporcionar alívio imediato e restaurar o equilíbrio em situações de desconforto agudo.", 
+      "A ansiedade é frequentemente mantida por padrões de pensamentos disfuncionais. É imperativo desenvolver a habilidade de identificar e questionar pensamentos catastróficos ou excessivamente negativos. \n\nSugere-se a prática do registro de pensamentos, anotando as situações que desencadeiam a ansiedade, os pensamentos automáticos associados e as emoções resultantes. Após o registro, proceda com uma análise crítica da veracidade e utilidade desses pensamentos, buscando evidências que os confirmem ou refutem. A substituição consciente de pensamentos distorcidos por interpretações mais realistas e ponderadas da realidade é um passo crucial para a redução da intensidade e da frequência dos estados ansiosos. \n\nEsta reestruturação cognitiva, embora gradual, é uma ferramenta poderosa para o manejo da ansiedade a longo prazo."]
     },
     {
       "tag": "cansaco",
-      "entradas": [
-        "cansado",
-        "cansada",
-        "exausto",
-        "fadiga",
-        "cansaco"
-      ],
-      "saidas": [
-        "É fundamental reconhecer quando o cansaço mental se torna persistente e começa a afetar seriamente sua vida. O autocuidado é essencial, mas há momentos em que o apoio profissional é o caminho mais eficaz e seguro.\n\nConsidere buscar ajuda profissional se você apresenta os seguintes sinais de forma contínua:\n\nSintomas Persistentes: O cansaço, a irritabilidade, a falta de concentração e o desânimo não melhoram, mesmo após períodos de descanso.\n\nAlterações no Sono e Apetite: Dificuldade para dormir, excesso de sono, perda ou aumento significativo do apetite.\n\nIsolamento Social: Você tem evitado o contato com amigos e familiares e perdido o interesse em atividades que antes lhe davam prazer.\n\nSentimentos de Desesperança: Se pensamentos negativos são constantes e você se sente sem perspectivas.\n\nImpacto nas Atividades Diárias: Dificuldade em cumprir com as responsabilidades no trabalho, nos estudos ou em casa.\n\nSintomas Físicos: Dores de cabeça frequentes, dores musculares, problemas gastrointestinais sem causa aparente.",
-        "Lidar com o cansaço mental exige pequenas e constantes mudanças na rotina. Comece com estas instruções práticas que você pode aplicar ainda hoje:\n\nPriorize o Essencial: Olhe para sua lista de tarefas e identifique UMA única coisa que é realmente importante. Foque nela. O resto pode esperar. Dizer não para novas demandas hoje é um ato de autocuidado.\n\nHidrate-se e Alimente-se Bem: A desidratação e a falta de nutrientes podem intensificar a sensação de esgotamento. Beba um copo de água agora e, na sua próxima refeição, inclua alimentos ricos em energia, como frutas, castanhas ou um prato colorido e balanceado. Evite o excesso de cafeína e açúcar.\n\nMovimente o Corpo Levemente: Uma caminhada curta de 10 a 15 minutos ao ar livre pode fazer maravilhas. O objetivo não é o exercício intenso, mas sim mudar de ambiente e permitir que sua mente divague.\n\nSimplifique as Decisões: O cansaço mental dificulta a tomada de decisões. Simplifique o que for possível: escolha uma roupa simples, opte por uma refeição fácil de preparar. Reduza a carga cognitiva do seu dia.\n\nComece com uma ou duas dessas sugestões. O importante é a intenção de cuidar de si."
-      ]
-    },
-    {
-      "tag": "aprendido_1",
-      "entradas": [
-        "estou depresso"
-      ],
-      "saidas": [
-        "a"
-      ]
-    },
-    {
-      "tag": "aprendido_2",
-      "entradas": [
-        "obrigado"
-      ],
-      "saidas": [
-        "de nada, é muito bom poder te ajudar"
-      ]
+      "entradas": ["cansado", "cansada", "exausto", "fadiga", "cansaco"],
+      "saidas": ["É fundamental reconhecer quando o cansaço mental se torna persistente e começa a afetar seriamente sua vida. O autocuidado é essencial, mas há momentos em que o apoio profissional é o caminho mais eficaz e seguro.\n\nConsidere buscar ajuda profissional se você apresenta os seguintes sinais de forma contínua:\n\nSintomas Persistentes: O cansaço, a irritabilidade, a falta de concentração e o desânimo não melhoram, mesmo após períodos de descanso.\n\nAlterações no Sono e Apetite: Dificuldade para dormir, excesso de sono, perda ou aumento significativo do apetite.\n\nIsolamento Social: Você tem evitado o contato com amigos e familiares e perdido o interesse em atividades que antes lhe davam prazer.\n\nSentimentos de Desesperança: Se pensamentos negativos são constantes e você se sente sem perspectivas.\n\nImpacto nas Atividades Diárias: Dificuldade em cumprir com as responsabilidades no trabalho, nos estudos ou em casa.\n\nSintomas Físicos: Dores de cabeça frequentes, dores musculares, problemas gastrointestinais sem causa aparente.", 
+      "Lidar com o cansaço mental exige pequenas e constantes mudanças na rotina. Comece com estas instruções práticas que você pode aplicar ainda hoje:\n\nPriorize o Essencial: Olhe para sua lista de tarefas e identifique UMA única coisa que é realmente importante. Foque nela. O resto pode esperar. Dizer não para novas demandas hoje é um ato de autocuidado.\n\nHidrate-se e Alimente-se Bem: A desidratação e a falta de nutrientes podem intensificar a sensação de esgotamento. Beba um copo de água agora e, na sua próxima refeição, inclua alimentos ricos em energia, como frutas, castanhas ou um prato colorido e balanceado. Evite o excesso de cafeína e açúcar.\n\nMovimente o Corpo Levemente: Uma caminhada curta de 10 a 15 minutos ao ar livre pode fazer maravilhas. O objetivo não é o exercício intenso, mas sim mudar de ambiente e permitir que sua mente divague.\n\nSimplifique as Decisões: O cansaço mental dificulta a tomada de decisões. Simplifique o que for possível: escolha uma roupa simples, opte por uma refeição fácil de preparar. Reduza a carga cognitiva do seu dia.\n\nComece com uma ou duas dessas sugestões. O importante é a intenção de cuidar de si."]
     }
   ]
 }
