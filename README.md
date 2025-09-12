@@ -18,7 +18,7 @@ python chatbot.py
 ## 📦 Estrutura do projeto
 
 ```
-chatbot-python/
+PsyCare/
 ├── chatbot.py          # Arquivo principal do chatbot
 ├── respostas_formal.json    # DArquivo json da personalidade formal
 ├── respostas_direto.json    # Arquivo json da personalidade direto
