@@ -11,14 +11,24 @@ class Estatisticas:
             'direto': 0
         }
         self.carregar_estatisticas()
-    
+
     def adicionar_pergunta(self, pergunta):
         self.perguntas[pergunta] += 1
         self.total_interacoes += 1
-        
+
     def adicionar_uso_personalidade(self, personalidade):
         self.uso_personalidades[personalidade] += 1
+
+    def top3_perguntas(self):
+        if not self.perguntas:
+            return "Sem perguntas registradas ainda."
         
+        top3 = self.perguntas.most_common(3)
+        saida = "Top 3 perguntas mais frequentes:\n"
+        for i, (pergunta, _) in enumerate(top3, 1):  
+            saida += f"{i}. {pergunta}\n"
+        return saida.strip()
+
     def salvar_estatisticas(self):
         dados = {
             'total_interacoes': self.total_interacoes,
@@ -38,7 +48,6 @@ class Estatisticas:
             for modo, quantidade in self.uso_personalidades.items():
                 g.write(f"\n    - Modo {modo.capitalize()}: {quantidade}")
 
-
     def carregar_estatisticas(self):
         try:
             with open('estatisticas.txt', 'r', encoding='utf-8') as f:
@@ -46,7 +55,7 @@ class Estatisticas:
                 self.total_interacoes = dados['total_interacoes']
                 self.perguntas = Counter(dados['perguntas'])
                 self.uso_personalidades = dados['uso_personalidades']
-        except FileNotFoundError:
+        except:
             pass
             
     def obter_pergunta_mais_frequente(self):
@@ -54,6 +63,7 @@ class Estatisticas:
             return "Nenhuma pergunta registrada"
         return self.perguntas.most_common(1)[0]
         
+
     def exibir_estatisticas(self):
         print("\n=== Estatísticas ===")
         print(f"Total de interações: {self.total_interacoes}")

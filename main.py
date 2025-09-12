@@ -21,6 +21,7 @@ bot = PsyCare(modo)
 aprendizado = Aprender()
 
 print(f"\nComo posso ajudar?\n.Você pode digitar sair\n.ou mudar de modo a qualquer momento\n\n-Me diga o que está sentindo {pessoa.nome}")
+print(PsyCare.estatisticas.top3_perguntas())
 
 while True:
     user_input = input(f"{pessoa.nome}: ")
