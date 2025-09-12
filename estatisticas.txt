@@ -1,0 +1,17 @@
+{
+  "total_interacoes": 10,
+  "perguntas": {
+    "estou triste": 3,
+    "mudar modo": 1,
+    "amigável": 1,
+    "mudar direto": 1,
+    "tchau": 1,
+    "tenho depresso": 2,
+    "estou depresso": 1
+  },
+  "uso_personalidades": {
+    "formal": 3,
+    "amigavel": 2,
+    "direto": 5
+  }
+}

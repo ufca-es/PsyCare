@@ -1,0 +1,22 @@
+{
+  "respostas": [
+    {
+      "tag": "aprendido_1",
+      "entradas": [
+        "ola"
+      ],
+      "saidas": [
+        "Oi"
+      ]
+    },
+    {
+      "tag": "aprendido_2",
+      "entradas": [
+        "tenho depresso"
+      ],
+      "saidas": [
+        "Não chore"
+      ]
+    }
+  ]
+}
