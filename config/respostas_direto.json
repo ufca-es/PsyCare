@@ -67,6 +67,21 @@
       "entradas": ["cansado", "cansada", "exausto", "fadiga", "cansaco", "estresse", "estressado", "estressada", "stress"],
       "saidas": ["Você precisa deixar sua mente com menos preocupações, e ter um descanso apropriado.\n\nOrganize suas tarefas em uma lista simples, ordenando com base na prioridade de entrega. Defina o horário para cumprir cada um, e cumpra-o, assim não irá se sobrecarregar com seus trabalhos e terá uma melhor rotina, separando o tempo de trabalho com o de descanso.", 
       "Você está em constante cansaço mental, por isso recomendo que você desocupe sua mente.\n\nPare tudo por 5 minutos, vá para um lugar tranquilo e iluminado, feche os olhos e concentre-se apenas na sua respiração. Não tente controlar os pensamentos, apenas os deixe passar.\n\nDesconecte-se um pouco das telas e faça caminhadas frequentes, assim você se desconecta um pouco das preocupações, pois seu corpo e mente precisa ter um descanso."]
+    },
+    {
+      "tag": "felicidade",
+      "entradas":[
+        "feliz",
+        "felicidade",
+        "realizado",
+        "bem",
+        "contente",
+        "alegre"
+      ],
+      "saidas":[
+        "Uma mente que cultiva ativamente o bem-estar funciona melhor. Ela é mais resiliente, processa o estresse com mais eficiência e se recupera mais rápido dos golpes da vida. Deixar sua felicidade para quando der tempo é como deixar um soldado ir para a guerra sem colete. Encare a sua feelicidade como parte essencial do seu cotidiano.",
+        "Cada escolha que você faz para nutrir sua satisfação pessoal, por menor que seja, é um tijolo que você coloca na sua fortaleza mental. Não espere uma crise para começar a se cuidar. A ação é agora. Decida ser feliz não por capricho, mas como a mais poderosa declaração de autocuidado e força que existe."
+      ]
     }
   ]
 }
