@@ -26,6 +26,33 @@ modo_select = ttk.Combobox(frame_top, textvariable=modo_var, state="readonly")
 modo_select["values"] = ("Formal", "Amigavel", "Direto")
 modo_select.grid(row=1, column=1, padx=5)
 
+# --- Estatísticas (top 3 perguntas históricas) ---
+frame_stats = tk.Frame(root)
+frame_stats.pack(padx=10, pady=5, fill=tk.X)
+
+tk.Label(frame_stats, text="Top 3 perguntas (histórico):").pack(anchor="w")
+list_top3 = tk.Listbox(frame_stats, height=3)
+list_top3.pack(fill=tk.X)
+
+def atualizar_top3():
+    """Atualiza a lista com as 3 perguntas mais frequentes de todos os runs (persistidas)."""
+    list_top3.delete(0, tk.END)
+    # usa as estatísticas globais carregadas em PsyCare.estatisticas
+    try:
+        counter = PsyCare.estatisticas.perguntas
+    except Exception:
+        counter = None
+    if not counter:
+        list_top3.insert(tk.END, "Nenhuma pergunta registrada")
+        return
+    top3 = counter.most_common(3)
+    if not top3:
+        list_top3.insert(tk.END, "Nenhuma pergunta registrada")
+        return
+    for i, (pergunta, freq) in enumerate(top3, 1):
+        display = f"{i}. {pergunta} ({freq})"
+        list_top3.insert(tk.END, display)
+
 # --- Área de conversa ---
 caixa_conversa = scrolledtext.ScrolledText(root, wrap=tk.WORD, state='disabled')
 caixa_conversa.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
@@ -66,6 +93,9 @@ def iniciar_chat():
     bot = PsyCare(modo)
     bot.estatisticas.adicionar_uso_personalidade(modo)
     
+    # Atualiza display das top3 (histórico)
+    atualizar_top3()
+    
     # Libera entrada de texto
     entrada_texto.config(state="normal")
     botao_enviar.config(state="normal")
@@ -101,6 +131,9 @@ def enviar():
     
     atualizar_chat(f"{pessoa.nome}: {user_input}")
     bot.estatisticas.adicionar_pergunta(user_input)
+    
+    # atualizar o painel de top3 após registrar a pergunta
+    atualizar_top3()
     
     resposta = bot.responder(user_input)
     
