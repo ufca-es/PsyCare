@@ -171,6 +171,24 @@ def mostrar_relatorio(auto=False):
     texto.config(state="disabled")
     janela.protocol("WM_DELETE_WINDOW", lambda: root.destroy())
 
+def sair():
+    """
+    Executa a mesma ação que digitar 'sair' na entrada:
+    - salva estatísticas/relatório se o bot estiver ativo
+    - mostra o relatório automaticamente (fecha a janela principal)
+    - caso o bot não exista, apenas encerra a aplicação
+    """
+    if bot:
+        try:
+            bot.estatisticas.salvar_estatisticas()
+            bot.estatisticas.salvar_relatorio()
+        except Exception:
+            pass
+        atualizar_chat("PsyCare: Até logo!")
+        mostrar_relatorio(auto=True)
+    else:
+        root.quit()
+
 # Botões principais
 # ----------------------
 frame_botoes = tk.Frame(root)
@@ -185,5 +203,9 @@ entrada_texto.bind("<Return>", lambda event: enviar())
 
 botao_historico = tk.Button(frame_botoes, text="Histórico", command=mostrar_ultimas_interacoes, state="normal")
 botao_historico.pack(side=tk.LEFT, padx=5)
+
+# novo botão "Sair" que replica a ação de digitar 'sair'
+botao_sair = tk.Button(frame_botoes, text="Sair", command=sair)
+botao_sair.pack(side=tk.LEFT, padx=5)
 
 root.mainloop()
