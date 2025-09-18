@@ -169,6 +169,7 @@ def mostrar_relatorio(auto=False):
     estatisticas_texto = bot.estatisticas.exibir_estatisticas(retornar_texto=True)
     texto.insert(tk.END, estatisticas_texto + "\n" + conteudo)
     texto.config(state="disabled")
+    janela.protocol("WM_DELETE_WINDOW", lambda: root.destroy())
 
 # Botões principais
 # ----------------------
