@@ -10,24 +10,49 @@ class PsyCare:
     estatisticas = Estatisticas()
     
     def __init__(self, modo):
-        self.modo = modo
-        if modo == 'formal':
-            arquivo_json = FORMAL_JSON
-        elif modo == 'amigável' or modo == 'amigavel':
-            arquivo_json = AMIGAVEL_JSON
-        elif modo == 'direto':
-            arquivo_json = DIRETO_JSON
-        else:
-            arquivo_json = None
+        # inicializa carregando dados do modo solicitado (normaliza internamente)
+        self.modo = None
+        self.dados = None
+        self._set_modo(modo)
 
+    def _normalize_modo(self, modo):
+        if not isinstance(modo, str):
+            return None
+        p = modo.lower().strip()
+        p = p.replace('á','a').replace('à','a').replace('ã','a').replace('â','a')
+        p = p.replace('é','e').replace('è','e').replace('ê','e')
+        p = p.replace('í','i').replace('ï','i')
+        p = p.replace('ó','o').replace('ô','o').replace('õ','o').replace('ö','o')
+        p = p.replace('ú','u').replace('ç','c').replace('ñ','n')
+        if p.startswith('form'):
+            return 'formal'
+        if p.startswith('amig'):
+            return 'amigavel'
+        if p.startswith('dir'):
+            return 'direto'
+        return None
+
+    def _set_modo(self, modo):
+        """Define o modo do bot e recarrega o arquivo json correspondente."""
+        chave = self._normalize_modo(modo)
+        if chave is None:
+            # não altera se modo inválido
+            return False
+        self.modo = chave
+        arquivo = {
+            'formal': FORMAL_JSON,
+            'amigavel': AMIGAVEL_JSON,
+            'direto': DIRETO_JSON
+        }.get(chave)
         try:
-            if arquivo_json:
-                with open(arquivo_json, 'r', encoding='utf-8') as f:
+            if arquivo:
+                with open(arquivo, 'r', encoding='utf-8') as f:
                     self.dados = json.load(f)
             else:
                 self.dados = None
         except FileNotFoundError:
             self.dados = None
+        return True
 
     def _tratar_texto(self, text):
         """Normaliza: remove acentos, pontuação, passa para minúsculas e limpa espaços."""
@@ -82,15 +107,42 @@ class PsyCare:
         return combined
 
     def responder(self, user_input):
-        """Processa entrada do usuário e escolhe a melhor resposta baseada em similaridade de frases."""
-        # atualizar estatísticas
+        """Processa entrada do usuário e escolhe a melhor resposta.
+           Se a entrada for um comando para mudar o modo, faz a troca e retorna confirmação.
+        """
+        texto_raw = user_input if isinstance(user_input, str) else ""
+        texto = self._tratar_texto(texto_raw)
+
+        # Detecta comando de mudança de modo:
+        # exemplos aceitos: "mudar para formal", "modo: amigavel", "trocar para direto", "formal"
+        target = None
+        m = re.search(r'(?:mudar\s+para|trocar\s+para|mudar\s+modo\s+para|modo:|modo\s+para)\s*(formal|amigavel|amigavel|amig|amigavel|amigável|direto)\b', texto)
+        if not m:
+            m2 = re.search(r'\bmodo\b.*\b(formal|amigavel|amigavel|amig|amigavel|amigável|direto)\b', texto)
+            if m2:
+                m = m2
+        if not m:
+            # aceitar quando usuário digita apenas o nome do modo
+            if texto.strip() in ('formal','amigavel','amigavel','amigavel','amigável','direto','amig'):
+                target = texto.strip()
+        if m and not target:
+            target = m.group(1)
+
+        if target:
+            # tenta normalizar e aplicar mudança; não contabiliza essa entrada como interação normal
+            if self._set_modo(target):
+                return f"Modo alterado para {self.modo.capitalize()}."
+            else:
+                return "Modo inválido. Use: formal, amigavel ou direto."
+
+        # não é comando de mudança: atualizar estatísticas (uma única vez por interação)
         PsyCare.estatisticas.adicionar_pergunta(user_input)
         PsyCare.estatisticas.adicionar_uso_personalidade(self.modo)
 
         if not self.dados or "respostas" not in self.dados:
             return None
 
-        texto_usuario = self._tratar_texto(user_input)
+        texto_usuario = texto
         if not texto_usuario:
             return None
 

@@ -62,7 +62,7 @@ def iniciar_chat():
     pessoa = Usuario(nome)
     historico = Historico(pessoa)
     bot = PsyCare(modo)
-    bot.estatisticas.adicionar_uso_personalidade(modo)
+    # Não incrementar aqui — contar uso de personalidade por interação em PsyCare.responder()
 
     entrada_texto.config(state="normal")
     botao_enviar.config(state="normal")

@@ -19,7 +19,27 @@ class Estatisticas:
         self.total_interacoes += 1
 
     def adicionar_uso_personalidade(self, personalidade):
-        self.uso_personalidades[personalidade] += 1
+        # Normaliza entrada e mapeia para as chaves internas
+        if not isinstance(personalidade, str):
+            return
+        p = personalidade.lower().strip()
+        # remover acentos básicos
+        p = p.replace('á','a').replace('à','a').replace('ã','a').replace('â','a')
+        p = p.replace('é','e').replace('è','e').replace('ê','e')
+        p = p.replace('í','i').replace('ï','i')
+        p = p.replace('ó','o').replace('ô','o').replace('õ','o').replace('ö','o')
+        p = p.replace('ú','u').replace('ç','c').replace('ñ','n')
+
+        if p.startswith('form'):
+            chave = 'formal'
+        elif p.startswith('amig'):
+            chave = 'amigavel'
+        elif p.startswith('dir'):
+            chave = 'direto'
+        else:
+            return
+
+        self.uso_personalidades[chave] += 1
 
     def top3_perguntas(self):
         if not self.perguntas:
