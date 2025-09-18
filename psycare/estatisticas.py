@@ -66,15 +66,20 @@ class Estatisticas:
         return self.perguntas.most_common(1)[0]
         
 
-    def exibir_estatisticas(self):
-        print("\n=== Estatísticas da Sessão Atual ===")
-        print(f"Total de interações: {self.total_interacoes}")
-        
-        if self.perguntas_sessao:  # usar perguntas_sessao ao invés de perguntas
+    def exibir_estatisticas(self, retornar_texto=False):
+        saida = "\n=== Estatísticas da Sessão Atual ===\n"
+        saida += f"Total de interações: {self.total_interacoes}\n"
+
+        if self.perguntas_sessao:
             pergunta_frequente = self.perguntas_sessao.most_common(1)[0]
-            print(f"Pergunta mais frequente desta sessão: '{pergunta_frequente[0]}' ({pergunta_frequente[1]} vezes)")
-        
-        print("\nUso de personalidades:")
+            saida += f"Pergunta mais frequente desta sessão: '{pergunta_frequente[0]}' ({pergunta_frequente[1]} vezes)\n"
+
+        saida += "\nUso de personalidades:\n"
         for modo, quantidade in self.uso_personalidades.items():
-            print(f"- {modo.capitalize()}: {quantidade}")
-        print("==================")
+            saida += f"- {modo.capitalize()}: {quantidade}\n"
+        saida += "==================\n"
+
+        if retornar_texto:
+            return saida  # retorna a string
+        else:
+            print(saida)  # mantém o print se não pedir retorno
