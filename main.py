@@ -93,10 +93,9 @@ def enviar():
         mostrar_relatorio(auto=True)  # mostra relatório e fecha a janela principal
         return
 
-
-
     atualizar_chat(f"{pessoa.nome}: {user_input}")
-    bot.estatisticas.adicionar_pergunta(user_input)
+    # Removida chamada duplicada: bot.estatisticas.adicionar_pergunta(user_input)
+    # (as estatísticas são atualizadas dentro de bot.responder)
 
     resposta = bot.responder(user_input)
 
@@ -113,21 +112,24 @@ def enviar():
                 atualizar_chat("PsyCare: Aprendi! Pode testar novamente.")
 
 def mostrar_ultimas_interacoes():
-    try:
-        with open("historico.txt", "r", encoding="utf-8") as f:
-            linhas = f.readlines()
-            ultimas = linhas[-5:] if len(linhas) >= 5 else linhas
-    except FileNotFoundError:
-        ultimas = ["Nenhum histórico encontrado."]
+    """
+    Abre janela com últimas 5 interações (pergunta + resposta) usando Historico.ler().
+    """
+    if not historico:
+        messagebox.showinfo("Histórico", "Nenhuma sessão iniciada ainda.")
+        return
 
-    # Criar janela para exibir
+    ultimas = historico.ler(last_n=5)
+    if not ultimas:
+        ultimas = "Nenhuma interação encontrada."
+
     janela = Toplevel(root)
     janela.title("Últimas 5 interações")
     janela.geometry("500x300")
 
     texto = scrolledtext.ScrolledText(janela, wrap=tk.WORD, state="normal")
     texto.pack(padx=10, pady=10, fill=tk.BOTH, expand=True)
-    texto.insert(tk.END, "".join(ultimas))
+    texto.insert(tk.END, ultimas)
     texto.config(state="disabled")
 
 def mostrar_relatorio(auto=False):
