@@ -8,15 +8,17 @@ from psycare.psycare import PsyCare
 from psycare.usuario import Usuario
 from psycare.historico import Historico
 from psycare.aprender import Aprender
+from psycare.estatisticas import Estatisticas
 
-# Janela principal
+Estatisticas.data_dir("")
+
+
 root = tk.Tk()
 root.title("PsyCare")
 root.geometry("900x640")
 root.minsize(780, 520)
 root.configure(bg="#f4f7fb")
 
-# Estilos e fontes
 style = ttk.Style(root)
 style.theme_use('clam')
 PRIMARY = "#2b6cb0"
@@ -31,25 +33,21 @@ font_header = tkfont.Font(family="Segoe UI", size=16, weight="bold")
 font_sub = tkfont.Font(family="Segoe UI", size=10)
 font_chat = tkfont.Font(family="Segoe UI", size=11)
 
-# Frames principais: sidebar + main
 sidebar_w = 280
 frame_sidebar = tk.Frame(root, bg=BG, width=sidebar_w)
 frame_sidebar.pack(side=tk.LEFT, fill=tk.Y)
 frame_main = tk.Frame(root, bg=BG)
 frame_main.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
-# Sidebar content (card)
 card = tk.Frame(frame_sidebar, bg=CARD, bd=0, relief=tk.FLAT)
 card.place(relx=0.03, rely=0.03, relwidth=0.94, relheight=0.94)
 
-# Header
 lbl_title = tk.Label(card, text="PsyCare", bg=CARD, fg=PRIMARY, font=font_header)
 lbl_title.pack(anchor="nw", padx=16, pady=(14, 4))
 
 lbl_sub = tk.Label(card, text="Acolhendo e informando.", bg=CARD, fg=MUTED, font=font_sub)
 lbl_sub.pack(anchor="nw", padx=16)
 
-# Entrada nome / modo
 frm_inputs = tk.Frame(card, bg=CARD)
 frm_inputs.pack(fill=tk.X, padx=12, pady=12)
 
@@ -64,7 +62,6 @@ modo_select = ttk.Combobox(frm_inputs, textvariable=modo_var, state="readonly", 
 modo_select["values"] = ("Formal", "Amigavel", "Direto")
 modo_select.grid(row=3, column=0, sticky="w", pady=(4,8))
 
-# Botões iniciar / histórico / sair
 frm_buttons = tk.Frame(card, bg=CARD)
 frm_buttons.pack(fill=tk.X, padx=12, pady=(0,12))
 
@@ -77,7 +74,6 @@ botao_historico.pack(fill=tk.X, pady=(0,8))
 botao_sair = tk.Button(frm_buttons, text="Sair", bg="#ffe9e9", fg="#b02a2a", relief=tk.FLAT, command=lambda: sair())
 botao_sair.pack(fill=tk.X)
 
-# Top 3 perguntas (histórico persistente)
 frm_top3 = tk.Frame(card, bg=CARD)
 frm_top3.pack(fill=tk.BOTH, expand=True, padx=12, pady=12)
 
@@ -102,11 +98,9 @@ def atualizar_top3():
         display = f"{i}. {pergunta} ({freq})"
         list_top3.insert(tk.END, display)
 
-# Main area: chat card
 chat_card = tk.Frame(frame_main, bg=CARD)
 chat_card.place(relx=0.03, rely=0.03, relwidth=0.94, relheight=0.94)
 
-# Chat header
 hdr = tk.Frame(chat_card, bg=CARD)
 hdr.pack(fill=tk.X, pady=(10,6), padx=12)
 lbl_chat_title = tk.Label(hdr, text="Conversa", bg=CARD, fg=TEXT, font=font_header)
@@ -119,16 +113,13 @@ def tick_clock():
     lbl_clock.after(10000, tick_clock)
 tick_clock()
 
-# ScrolledText chat
 caixa_conversa = scrolledtext.ScrolledText(chat_card, wrap=tk.WORD, state='disabled', bg="#fbfdff", fg=TEXT, font=font_chat, bd=0)
 caixa_conversa.pack(padx=12, pady=(0,8), fill=tk.BOTH, expand=True)
 
-# tags para mensagens
 caixa_conversa.tag_configure("user", foreground="#0b5fa5", justify="right")
 caixa_conversa.tag_configure("bot", foreground="#136f63", justify="left")
 caixa_conversa.tag_configure("meta", foreground=MUTED, font=font_sub)
 
-# Entrada e botões de envio
 frm_entry = tk.Frame(chat_card, bg=CARD)
 frm_entry.pack(fill=tk.X, padx=12, pady=8)
 
@@ -138,13 +129,11 @@ entrada_texto.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0,8))
 botao_enviar = tk.Button(frm_entry, text="Enviar", bg=PRIMARY, fg="white", relief=tk.FLAT, state="disabled")
 botao_enviar.pack(side=tk.RIGHT)
 
-# Variáveis de domínio
 pessoa = None
 historico = None
 bot = None
 aprendizado = Aprender()
 
-# Funções utilitárias
 def atualizar_chat(mensagem, autor="meta"):
     caixa_conversa.config(state='normal')
     if autor == "user":
@@ -172,7 +161,6 @@ def iniciar_chat():
     historico = Historico(pessoa)
     bot = PsyCare(modo)
 
-    # habilita entrada e botões
     entrada_texto.config(state="normal")
     botao_enviar.config(state="normal")
     botao_iniciar.config(state="disabled")
@@ -192,14 +180,12 @@ def enviar(event=None):
         return
     entrada_texto.delete(0, tk.END)
     if user_input.lower() == "sair":
-        # mesma ação do botão sair
         sair()
         return
 
     atualizar_chat(f"{pessoa.nome}: {user_input}", "user")
     resposta = bot.responder(user_input)
 
-    # atualizar Top3 sempre que houver estatísticas persistentes
     atualizar_top3()
 
     if resposta:
@@ -218,7 +204,6 @@ def enviar(event=None):
                 atualizar_chat("PsyCare: Aprendi! Pode testar novamente.", "bot")
     return
 
-# ligar eventos
 botao_enviar.config(command=enviar)
 entrada_texto.bind("<Return>", lambda e: enviar())
 
@@ -246,12 +231,11 @@ def mostrar_relatorio(auto=False):
     janela.title("Relatório do PsyCare")
     janela.geometry("560x420")
     try:
-        with open("relatorio.txt", "r", encoding="utf-8") as f:
+        with open(r"data\relatorio.txt", "r", encoding="utf-8") as f:
             conteudo = f.read()
     except FileNotFoundError:
         conteudo = "Nenhum relatório encontrado. Interaja com o chatbot primeiro."
 
-    # Substituir a pergunta mais frequente pelo da sessão atual (se houver)
     try:
         if bot.estatisticas.perguntas_sessao:
             pergunta_frequente, freq = bot.estatisticas.perguntas_sessao.most_common(1)[0]
@@ -283,7 +267,6 @@ def sair():
     else:
         root.quit()
 
-# Ativação inicial: foco e dica
 entrada_nome.focus_set()
 atualizar_chat("PsyCare pronto. Digite seu nome e escolha o modo para começar.", "meta")
 atualizar_top3()

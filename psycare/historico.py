@@ -6,7 +6,7 @@ class Historico:
 
     def salvar(self, user_input, resposta):
         timestamp = datetime.now().strftime("%A %d/%m/%Y %H:%M")
-        with open("historico.txt", 'a', encoding='utf-8') as g:
+        with open(r"data\historico.txt", 'a', encoding='utf-8') as g:
             g.write(f"{timestamp} - {self.usuario.nome}: {user_input}\n")
             g.write(f"{timestamp} - PsyCare: {resposta}\n")
 
@@ -17,12 +17,11 @@ class Historico:
         Retorna None se não houver arquivo.
         """
         try:
-            with open("historico.txt", "r", encoding="utf-8") as f:
+            with open(r"data\historico.txt", "r", encoding="utf-8") as f:
                 lines = [l.rstrip("\n") for l in f if l.strip()]
         except FileNotFoundError:
             return None
 
-        # Agrupa as linhas em interações (pares)
         interactions = []
         i = 0
         while i < len(lines):
@@ -30,7 +29,6 @@ class Historico:
                 interactions.append(lines[i] + "\n" + lines[i + 1])
                 i += 2
             else:
-                # linha solta: inclui como último registro parcial
                 interactions.append(lines[i])
                 i += 1
 

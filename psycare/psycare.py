@@ -10,7 +10,6 @@ class PsyCare:
     estatisticas = Estatisticas()
     
     def __init__(self, modo):
-        # inicializa carregando dados do modo solicitado (normaliza internamente)
         self.modo = None
         self.dados = None
         self._set_modo(modo)
@@ -36,7 +35,6 @@ class PsyCare:
         """Define o modo do bot e recarrega o arquivo json correspondente."""
         chave = self._normalize_modo(modo)
         if chave is None:
-            # não altera se modo inválido
             return False
         self.modo = chave
         arquivo = {
@@ -58,13 +56,10 @@ class PsyCare:
         """Normaliza: remove acentos, pontuação, passa para minúsculas e limpa espaços."""
         if not isinstance(text, str):
             return ""
-        # remover acentos
         text = unicodedata.normalize('NFKD', text)
         text = text.encode('ASCII', 'ignore').decode('utf-8', 'ignore')
         text = text.lower()
-        # remover pontuação (mantém letras e números e espaços)
         text = re.sub(r'[^\w\s]', ' ', text)
-        # reduzir múltiplos espaços
         text = re.sub(r'\s+', ' ', text).strip()
         return text
 
@@ -94,15 +89,12 @@ class PsyCare:
         if not t1 or not t2:
             return 0.0
 
-        # similaridade estrutural (ordem e caracteres)
         seq_ratio = SequenceMatcher(None, t1, t2).ratio()
 
-        # similaridade por tokens (palavras)
         tokens1 = t1.split()
         tokens2 = t2.split()
         jacc = self._jaccard(tokens1, tokens2)
 
-        # combinar: dar peso ligeiramente maior à estrutura, mas considerar sobreposição de palavras
         combined = 0.55 * seq_ratio + 0.45 * jacc
         return combined
 
@@ -113,8 +105,6 @@ class PsyCare:
         texto_raw = user_input if isinstance(user_input, str) else ""
         texto = self._tratar_texto(texto_raw)
 
-        # Detecta comando de mudança de modo:
-        # exemplos aceitos: "mudar para formal", "modo: amigavel", "trocar para direto", "formal"
         target = None
         m = re.search(r'(?:mudar\s+para|trocar\s+para|mudar\s+modo\s+para|modo:|modo\s+para)\s*(formal|amigavel|amigavel|amig|amigavel|amigável|direto)\b', texto)
         if not m:
@@ -122,20 +112,17 @@ class PsyCare:
             if m2:
                 m = m2
         if not m:
-            # aceitar quando usuário digita apenas o nome do modo
             if texto.strip() in ('formal','amigavel','amigavel','amigavel','amigável','direto','amig'):
                 target = texto.strip()
         if m and not target:
             target = m.group(1)
 
         if target:
-            # tenta normalizar e aplicar mudança; não contabiliza essa entrada como interação normal
             if self._set_modo(target):
                 return f"Modo alterado para {self.modo.capitalize()}."
             else:
                 return "Modo inválido. Use: formal, amigavel ou direto."
 
-        # não é comando de mudança: atualizar estatísticas (uma única vez por interação)
         PsyCare.estatisticas.adicionar_pergunta(user_input)
         PsyCare.estatisticas.adicionar_uso_personalidade(self.modo)
 
@@ -147,18 +134,17 @@ class PsyCare:
             return None
 
         melhor_resposta = None
-        melhor_score = 0.45  # limiar inicial; ajuste conforme necessário
+        melhor_score = 0.45 
 
         for intent in self.dados.get("respostas", []):
             entradas = intent.get("entradas", [])
             saidas = intent.get("saidas", [])
             for entrada in entradas:
                 entrada_tratada = self._tratar_texto(entrada)
-                # correspondência exata (após normalização) tem prioridade máxima
                 if texto_usuario == entrada_tratada:
                     return random.choice(saidas) if saidas else None
                 score = self._calcular_similaridade(texto_usuario, entrada_tratada)
-                if score > melhor_score and score > melhor_score - 0.0001:  # estabilidade
+                if score > melhor_score and score > melhor_score - 0.0001:
                     melhor_score = score
                     melhor_resposta = saidas
 
