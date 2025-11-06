@@ -1,11 +1,12 @@
 import json
 from collections import Counter
+from pathlib import Path
 
 class Estatisticas:
     def __init__(self):
         self.total_interacoes = 0
-        self.perguntas = Counter()  # contador total
-        self.perguntas_sessao = Counter()  # novo contador para sessão atual
+        self.perguntas = Counter()  
+        self.perguntas_sessao = Counter()   
         self.uso_personalidades = {
             'formal': 0,
             'amigavel': 0,
@@ -15,15 +16,13 @@ class Estatisticas:
 
     def adicionar_pergunta(self, pergunta):
         self.perguntas[pergunta] += 1
-        self.perguntas_sessao[pergunta] += 1  # incrementa contador da sessão
+        self.perguntas_sessao[pergunta] += 1  
         self.total_interacoes += 1
 
     def adicionar_uso_personalidade(self, personalidade):
-        # Normaliza entrada e mapeia para as chaves internas
         if not isinstance(personalidade, str):
             return
         p = personalidade.lower().strip()
-        # remover acentos básicos
         p = p.replace('á','a').replace('à','a').replace('ã','a').replace('â','a')
         p = p.replace('é','e').replace('è','e').replace('ê','e')
         p = p.replace('í','i').replace('ï','i')
@@ -57,12 +56,12 @@ class Estatisticas:
             'perguntas': dict(self.perguntas),
             'uso_personalidades': self.uso_personalidades
         }
-        with open('estatisticas.txt', 'w', encoding='utf-8') as f:
+        with open(r'data\estatisticas.txt', 'w', encoding='utf-8') as f:
             json.dump(dados, f, ensure_ascii=False, indent=2)
 
     def salvar_relatorio(self):
         pergunta, freq = self.obter_pergunta_mais_frequente()
-        with open('relatorio.txt', 'w', encoding='utf-8') as g:
+        with open(r'data\relatorio.txt', 'w', encoding='utf-8') as g:
             g.write(f'RELATÓRIO DO CHATBOT PSYCARE:\n\n1. INTERAÇÕES:\n    - A conversa com o chatbot obteve um total de {self.total_interacoes} interações entre o usuário e o chatbot.')
             if self.perguntas:
                 g.write(f'\n    - A mensagem mais frequente inserida pelo usuário: "{pergunta}", aparecendo {freq} vezes na conversa.\n')
@@ -72,7 +71,7 @@ class Estatisticas:
 
     def carregar_estatisticas(self):
         try:
-            with open('estatisticas.txt', 'r', encoding='utf-8') as f:
+            with open(r'data\estatisticas.txt', 'r', encoding='utf-8') as f:
                 dados = json.load(f)
                 self.total_interacoes = dados['total_interacoes']
                 self.perguntas = Counter(dados['perguntas'])
@@ -85,6 +84,9 @@ class Estatisticas:
             return "Nenhuma pergunta registrada"
         return self.perguntas.most_common(1)[0]
         
+    def data_dir(self):
+        data = Path(r"data")
+        data.mkdir(exist_ok=True)
 
     def exibir_estatisticas(self, retornar_texto=False):
         saida = "\n=== Estatísticas da Sessão Atual ===\n"
@@ -100,6 +102,6 @@ class Estatisticas:
         saida += "==================\n"
 
         if retornar_texto:
-            return saida  # retorna a string
+            return saida   
         else:
-            print(saida)  # mantém o print se não pedir retorno
+            print(saida)   
