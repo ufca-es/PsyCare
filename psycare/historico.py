@@ -1,7 +1,7 @@
 from datetime import datetime
 
 class Historico:
-    def __init__(self, usuario):
+    def __init__(self, usuario): 
         self.usuario = usuario
 
     def salvar(self, user_input, resposta):

@@ -1,5 +1,5 @@
 import re
-import json
+import json 
 from .constants import FORMAL_JSON, AMIGAVEL_JSON, DIRETO_JSON, APRENDIZADO_JSON
 
 class Aprender:

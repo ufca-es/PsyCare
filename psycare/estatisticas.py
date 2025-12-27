@@ -69,7 +69,7 @@ class Estatisticas:
             for modo, quantidade in self.uso_personalidades.items():
                 g.write(f"\n    - Modo {modo.capitalize()}: {quantidade}")
 
-    def carregar_estatisticas(self):
+    def carregar_estatisticas(self): 
         try:
             with open(r'data\estatisticas.txt', 'r', encoding='utf-8') as f:
                 dados = json.load(f)

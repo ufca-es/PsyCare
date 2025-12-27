@@ -7,7 +7,7 @@ from .estatisticas import Estatisticas
 from .constants import FORMAL_JSON, AMIGAVEL_JSON, DIRETO_JSON, APRENDIZADO_JSON
 
 class PsyCare:
-    estatisticas = Estatisticas()
+    estatisticas = Estatisticas() 
     
     def __init__(self, modo):
         self.modo = None

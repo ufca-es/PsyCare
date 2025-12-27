@@ -10,7 +10,7 @@ from psycare.historico import Historico
 from psycare.aprender import Aprender
 from psycare.estatisticas import Estatisticas
 
-Estatisticas.data_dir("")
+Estatisticas.data_dir("") 
 
 
 root = tk.Tk()
